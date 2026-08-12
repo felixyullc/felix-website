@@ -1,20 +1,92 @@
 ---
 import { Image } from "astro:assets";
-import focus from "../../assets/icons/focus.svg";
-import user1 from "../../assets/icons/user1.svg";
-import hand from "../../assets/icons/hand.svg";
-import people from "../../assets/icons/people.svg";
-import user2 from "../../assets/icons/user2.svg";
+import service1 from "../../assets/images/service1.png";
+import service2 from "../../assets/images/service2.png";
+import arrow from "../../assets/icons/arrow.svg";
 ---
 
 <section class="services-details" id="services-details">
-  <div class="container"></div>
+  <div class="container services">
+    <div class="service">
+      <div class="img"><Image src={service1} alt="" /></div>
+      <div class="content">
+        <h3>Licensed Professional Counselor</h3>
+        <p>
+          As a Licensed Professional Counselor, I provide individual therapy grounded in evidence-based, client-centered
+          approaches. My practice draws on Solution-Focused Therapy, Person-Centered Therapy, Motivational Interviewing,
+          and Rational Emotive Behaviour Therapy (REBT) to help clients identify their strengths, build motivation for
+          change, and develop practical strategies for reaching their goals. I specialize in working with young adults
+          and teenagers, while maintaining competency across a variety of demographics and populations. Sessions are
+          collaborative and tailored to each individual's needs, values, and pace.
+        </p>
+        <br />
+        <p>This service is private pay (out of pocket). A sliding scale is available based on financial need.</p>
+      </div>
+    </div>
+
+    <div class="service service2">
+      <div class="content">
+        <h3>CMPC Mentorship</h3>
+        <p>
+          I offer mentorship for students pursuing their Certified Mental Performance Consultant (CMPC) credential, as
+          well as recent graduates who still need to complete their mentorship hours. This service provides guidance,
+          supervision, and practical support to help mentees develop their consulting skills and meet certification
+          requirements. Both individual and group mentorship formats are available, offering flexibility to fit
+          different learning styles and schedules.
+        </p>
+        <br />
+        <p>This service is private pay (out of pocket). A sliding scale is available based on financial need.</p>
+      </div>
+      <div class="img"><Image src={service2} alt="" /></div>
+    </div>
+
+    <div class="services-btn">
+      <a href="" class="btn">SCHEDULE YOUR SESSION <Image src={arrow} alt="" /></a>
+    </div>
+  </div>
 </section>
 
 <style>
   .services-details {
     background: var(--blue-span2);
+    & .services {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      & .service {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        padding: 40px;
+        background: var(--l-blue2);
+        align-items: center;
+        & h3 {
+          font: var(--font-h3);
+          color: var(--white);
+          padding-bottom: 20px;
+        }
+        & p {
+          font: var(--font-p1);
+          color: var(--white);
+        }
+      }
+      & .service2 {
+        background: var(--bg-color);
+      }
+      & .services-btn {
+        display: flex;
+        justify-content: center;
+      }
+    }
   }
+
   @media (max-width: 440px) {
+    .services-details {
+      & .services {
+        & .service {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
   }
 </style>
