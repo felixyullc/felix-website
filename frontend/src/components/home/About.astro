@@ -1,0 +1,245 @@
+---
+import { Image } from "astro:assets";
+import about from "../../assets/images/about.jpg";
+import brain from "../../assets/icons/brain.svg";
+import mind from "../../assets/icons/mind.svg";
+import health from "../../assets/icons/health.svg";
+import badge from "../../assets/icons/badge.svg";
+---
+
+<section class="about-section" id="about-me">
+  <div class="about container">
+    <div class="about-imgs">
+      <Image src={about} alt="" class="about" />
+      <Image src={brain} alt="" class="brain" />
+    </div>
+    <div class="content">
+      <h2 class="h2 h2-small">About <div class="decor"></div></h2>
+      <p>
+        With a decade of experience, I offer a practical, goal-oriented, and collaborative service that can support both
+        mental performance areas and therapeutic concerns.
+      </p>
+    </div>
+  </div>
+  <div class="certifications">
+    <h2 class="h2 h2-big">Certifications and Licensures <div class="decor"></div></h2>
+    <div class="features">
+      <div class="feature">
+        <Image src={mind} alt="" class="feature-img" />
+        <p>Certification for Mental performance <span>CMPC</span></p>
+      </div>
+      <div class="feature">
+        <Image src={health} alt="" class="feature-img" />
+        <p>License for therapist Licence Profession – <span>LPC</span></p>
+      </div>
+      <div class="feature">
+        <Image src={badge} alt="" class="feature-img" />
+        <p>Worked for many years setting in the <span>USA – 8,5 years</span> over a decade</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-section {
+    display: flex;
+    flex-direction: column;
+    & .container {
+      padding-bottom: 0px;
+    }
+    & .about {
+      display: grid;
+      grid-template-columns: 0.6fr 1fr;
+      gap: 40px;
+      & .about-imgs {
+        height: fit-content;
+        & .about {
+          width: 380px;
+          height: 250px;
+          object-fit: cover;
+        }
+        & .brain {
+          position: relative;
+          left: 320px;
+          bottom: 280px;
+          background: var(--l-blue2);
+          padding: 10px;
+          height: 80px;
+          width: 80px;
+          border-radius: 100px;
+          border: 5px solid var(--white);
+        }
+      }
+      & .content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 40px;
+        & p {
+          font: var(--font-p1);
+        }
+      }
+    }
+    & .certifications {
+      background: var(--blue-bg);
+      padding: 40px;
+      justify-items: center;
+      text-align: center;
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        padding-top: 80px;
+        & .feature {
+          position: relative;
+          border: 1px solid var(--blue-span);
+          background: var(--white);
+          padding: 40px 30px 30px 30px;
+          width: 360px;
+          & .feature-img {
+            position: absolute;
+            background: var(--blue-span2);
+            padding: 10px;
+            width: 60px;
+            height: 60px;
+            border-radius: 100px;
+            top: -30px;
+            left: 150px;
+          }
+          & p {
+            font: var(--font-p1);
+            & span {
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .about-section {
+      & .about {
+        grid-template-columns: 0.7fr 1fr;
+        & .about-imgs {
+          & .brain {
+            left: 280px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 932px) {
+    .about-section {
+      & .about {
+        & .about-imgs {
+          & .brain {
+            left: 240px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 820px) {
+    .about-section {
+      & .about {
+        grid-template-columns: 0.8fr 1fr;
+        & .about-imgs {
+          & .brain {
+            left: 220px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 744px) {
+    .about-section {
+      & .about {
+        & .about-imgs {
+          & .brain {
+            left: 200px;
+            height: 70px;
+            width: 70px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 667px) {
+    .about-section {
+      & .about {
+        & .about-imgs {
+          & .brain {
+            left: 160px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 440px) {
+    .about-section {
+      & .about {
+        grid-template-columns: 0.8fr 1fr;
+        & .about-imgs {
+          & .brain {
+            left: 100px;
+            height: 60px;
+            width: 60px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 402px) {
+    .about-section {
+      & .about {
+        & .about-imgs {
+          & .brain {
+            left: 60px;
+            height: 60px;
+            width: 60px;
+          }
+        }
+      }
+      & .certifications {
+        & .features {
+          & .feature {
+            & .feature-img {
+              left: 130px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 375px) {
+    .about-section {
+      & .about {
+        & .about-imgs {
+          & .brain {
+            left: 40px;
+          }
+        }
+      }
+      & .certifications {
+        & .features {
+          & .feature {
+            & .feature-img {
+              left: 120px;
+              width: 50px;
+              height: 50px;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

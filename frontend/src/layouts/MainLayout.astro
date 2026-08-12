@@ -1,0 +1,102 @@
+---
+import Header from '../components/general/Header.astro'
+import Footer from '../components/general/Footer.astro'
+import Cookies from '../components/general/Cookies.astro'
+import '../styles/style.css'
+
+interface Props {
+  title: string;
+  metaDescription: string;
+  metaKeywords: string;
+  classMain: string;
+  ogUrl?: string;
+  image?: string;
+  logo?: string;
+}
+
+const {
+  title,
+  metaDescription,
+  metaKeywords,
+  classMain,
+  ogUrl = Astro.url.href,
+  image = "https://rivercityyouthstrings.com/Logo3.svg",
+  logo = "../../src/assets/images/main/Logo.svg",
+} = Astro.props;
+
+const siteName = "StephBe";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={metaDescription} />
+    <meta name="author" content="StephBe" />
+    <meta name="keywords" content={metaKeywords} />
+    <link rel="canonical" href="https://stephbe.ie/" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook / WhatsApp / LinkedIn -->
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={ogUrl} />
+    <meta property="og:title" content={`${title} | ${siteName}`} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:image" content={image} />
+
+    <!-- <meta name="twitter:image" content={image} /> -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:site" content="@StephBe" />
+    <meta name="twitter:image" content={image} />
+
+    <!-- Favicon (stored in public/favicon.svg) -->
+    <link rel="icon" href={logo} type="image/svg+xml" />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "name": "StephBe",
+            "url": {ogUrl},
+            "logo": "https://stephbe.ie/Logo3.svg"
+          },
+          {
+            "@type": "WebSite",
+            "url": {ogUrl},
+            "name": "StephBe",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://stephbe.ie/?s={search_term_string}",
+              "query-input": "required name=search_term_string"
+            }
+          }
+        ]
+      }
+    </script>
+
+  </head>
+  <body>
+<Header/>
+    <main>
+        <slot />
+    </main>
+    <!-- <Footer/> -->
+    <Cookies/>
+    <script>
+      import "../scripts/script.js";
+    </script>
+  </body>
+</html>

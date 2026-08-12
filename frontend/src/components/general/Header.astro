@@ -1,0 +1,112 @@
+---
+import { Image } from "astro:assets";
+import FelixLogo from "../../assets/logos/logo_felix.svg";
+import CMPCLogo from "../../assets/logos/CMPC_logo.svg";
+import arrow from "../../assets/icons/arrow.svg";
+---
+
+<header>
+  <nav>
+    <div class="logos">
+      <a href="/"> <Image class="logo" src={FelixLogo} alt="" /></a>
+      <Image class="cmpc" src={CMPCLogo} alt="" />
+    </div>
+    <button class="burger" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-menu">
+      <li><button class="close-menu" aria-label="Close menu">&times;</button></li>
+      <li><a href="#about-me">ABOUT</a></li>
+      <li><a href="#services">SERVICES</a></li>
+      <li><a href="#process">PROCESS</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <button class="btn-cta"><a href="" class="btn">BOOK A SESSION <Image src={arrow} alt="" /></a></button>
+    </ul>
+    <div class="nav-btn">
+      <a href="" class="btn">BOOK A SESSION <Image src={arrow} alt="" /></a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    padding: 10px 80px;
+    nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 80px;
+      & .logos {
+        display: flex;
+        gap: 20px;
+        & .logo {
+          width: 250px;
+        }
+        & .cmpc {
+          width: 50px;
+        }
+      }
+      & .nav-menu {
+        display: flex;
+        gap: 40px;
+        align-items: center;
+        & li a {
+          font: var(--font-p2);
+          color: var(--gray);
+          &:hover {
+            border-bottom: 2px solid var(--blue);
+          }
+        }
+        & .btn-cta {
+          display: none;
+        }
+      }
+      & .nav-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  @media (max-width: 1024px) {
+    header {
+      & nav {
+        grid-template-columns: 1fr 1fr;
+        & .nav-menu {
+          & .btn-cta {
+            display: block;
+          }
+        }
+        & .nav-btn {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 440px) {
+    header {
+      padding: 10px 40px;
+      & nav {
+        gap: 20px;
+        & .logos {
+          display: flex;
+          & .cmpc {
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 393px) {
+    header {
+      & nav {
+        & .nav-menu {
+          gap: 20px;
+        }
+      }
+    }
+  }
+</style>

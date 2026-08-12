@@ -1,0 +1,155 @@
+.burger {
+  display: none;
+}
+
+.burger {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  align-self: center;
+}
+
+.burger span {
+  width: 26px;
+  height: 3px;
+  background: var(--blue);
+  border-radius: 2px;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.close-menu {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 5rem;
+  color: var(--blue);
+  cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+  .menu {
+    margin-right: 40px;
+  }
+
+  .burger {
+    display: flex;
+    justify-self: right;
+  }
+
+  .nav-menu {
+    position: fixed;
+    inset: 0;
+    background: #f7fbff;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 140px 650px 0px 40px;
+    gap: 24px;
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    & button {
+      display: block;
+      z-index: 1002;
+    }
+  }
+
+  .nav-menu.active {
+    transform: translateX(60%);
+  }
+
+  .close-menu {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 640px;
+    z-index: 1001;
+  }
+}
+
+@media (max-width: 956px) {
+  .nav-menu {
+    padding: 100px 600px 0px 40px;
+  }
+  .close-menu {
+    right: 600px;
+  }
+}
+
+@media (max-width: 915px) {
+  .nav-menu {
+    padding: 100px 540px 0px 40px;
+  }
+  .close-menu {
+    right: 580px;
+  }
+}
+
+@media (max-width: 820px) {
+  .nav-menu {
+    padding: 140px 540px 0px 40px;
+  }
+  .close-menu {
+    right: 530px;
+  }
+}
+
+@media (max-width: 744px) {
+  .nav-menu {
+    padding-top: 100px;
+    padding-right: 480px;
+  }
+  .close-menu {
+    right: 480px;
+  }
+}
+
+@media (max-width: 667px) {
+  .nav-menu {
+    padding-top: 80px;
+    padding-right: 440px;
+  }
+  .close-menu {
+    right: 420px;
+  }
+}
+
+@media (max-width: 440px) {
+  .nav-menu {
+    padding: 80px 200px 0px 40px;
+  }
+  .nav-menu.active {
+    transform: translateX(40%);
+  }
+  .close-menu {
+    right: 200px;
+  }
+}
+
+@media (max-width: 393px) {
+  header nav .nav-menu {
+    padding-right: 180px;
+  }
+  .nav-menu.active {
+    transform: translateX(40%);
+  }
+  .close-menu {
+    right: 200px;
+  }
+}

@@ -1,0 +1,27 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import Hero from "../components/home/Hero.astro";
+import About from "../components/home/About.astro";
+import Services from "../components/home/Services.astro";
+import CTA from "../components/general/CTA.astro";
+import ServicesDetails from "../components/home/ServicesDetails.astro";
+---
+
+<MainLayout
+  title="Felix Yu - Mental Performance, Coaching & Consultation"
+  metaDescription=""
+  metaKeywords=""
+  ogUrl="https://"
+  classMain=""
+>
+  <Hero />
+  <About />
+  <Services />
+  <CTA
+    title="Ready to get started?"
+    description="If you want to build more focus, confidence, and consistency, the first step is to book a session."
+    btnText="SCHEDULE YOUR SESSION"
+    btnExtra=""
+  />
+  <ServicesDetails />
+</MainLayout>

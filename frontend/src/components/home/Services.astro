@@ -1,0 +1,176 @@
+---
+import { Image } from "astro:assets";
+import focus from "../../assets/icons/focus.svg";
+import user1 from "../../assets/icons/user1.svg";
+import hand from "../../assets/icons/hand.svg";
+import people from "../../assets/icons/people.svg";
+import user2 from "../../assets/icons/user2.svg";
+---
+
+<section class="services-section container" id="services">
+  <div class="header">
+    <h2 class="h2 h2-small">Services <div class="decor"></div></h2>
+    <h3>A customized approach to mental performance development</h3>
+    <p>
+      As a Certified Mental Performance Consultant (CMPC) through the Association for Applied Sport Psychology, I help
+      athletes, coaches, parents, and teams build the mental skills that drive consistent performance, supporting not
+      just the athlete, but the whole person, across all sports, levels, and domains of life.
+    </p>
+  </div>
+  <div class="services">
+    <button class="btn">INDIVIDUAL SESSIONS</button>
+    <div>
+      <div class="service">
+        <h4>Athletes</h4>
+        <p>
+          Confidence, focus, resilience, performing under pressure, and other mental skill areas tailored to your needs
+        </p>
+        <Image src={focus} alt="" />
+      </div>
+      <div class="service">
+        <h4>Coaches</h4>
+        <p>Leadership, communication, and athlete development</p>
+        <Image src={user1} alt="" />
+      </div>
+      <div class="service">
+        <h4>Parents</h4>
+        <p>
+          Supporting your athlete’s mental game in ways that carry over into life beyond sport, and managing the
+          pressures of competitive sport
+        </p>
+        <Image src={hand} alt="" />
+      </div>
+    </div>
+  </div>
+
+  <div class="services group">
+    <button class="btn">GROUP WORKSHOPS</button>
+    <div>
+      <div class="service">
+        <h4>Teams</h4>
+        <div>
+          <p>Cohesion, communication, and shared mental performance skills</p>
+          <Image src={people} alt="" />
+        </div>
+      </div>
+      <div class="service">
+        <h4>Coaching staffs</h4>
+        <div>
+          <p>aligning on culture, communication, and development philosophy</p>
+          <Image src={user2} alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="block">
+    <h3>Culture Building</h3>
+    <p>
+      Long-term partnership with organizations to build a culture of accountability, trust, and performance excellence.
+    </p>
+  </div>
+  <p>Every engagement is tailored to the people and goals in front of me.</p>
+</section>
+
+<style>
+  .services-section {
+    & .header {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      & h3 {
+        font: var(--font-h3);
+        font-weight: 400;
+      }
+      & p {
+        font: var(--font-p1);
+        text-align: left;
+      }
+    }
+    & .services {
+      padding: 40px 0px;
+      & div {
+        padding-top: 20px;
+        display: flex;
+        gap: 20px;
+        & .service {
+          display: flex;
+          flex-direction: column;
+          width: 340px;
+          background: var(--blue-bg);
+          padding: 20px;
+          justify-content: space-between;
+          gap: 10px;
+          border: 2px solid transparent;
+          & h4 {
+            font: var(--font-h4);
+            color: var(--blue-span);
+          }
+          & p {
+            font: var(--font-p2);
+            text-align: left;
+          }
+          & img {
+            height: fit-content;
+            align-self: self-end;
+          }
+          &:hover {
+            border: 2px solid var(--blue);
+          }
+        }
+      }
+    }
+    & .group div .service {
+      width: 510px;
+      & div {
+        padding-top: 0px;
+      }
+    }
+    .block {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      background: linear-gradient(to right, var(--l-blue1), var(--l-blue2));
+      padding: 20px 100px;
+      border-radius: 5px;
+      text-align: center;
+      & h3 {
+        font: var(--font-h3);
+        color: var(--white);
+      }
+      & p {
+        font: var(--font-p1);
+        color: var(--white);
+      }
+    }
+    & p {
+      padding-top: 20px;
+      text-align: center;
+      font: var(--font-p1);
+      font-style: italic;
+      color: var(--l-blue2);
+    }
+  }
+
+  @media (max-width: 440px) {
+    .services-section {
+      & .services {
+        padding: 20px 0px;
+        & div {
+          flex-wrap: wrap;
+          & img {
+            width: 40px;
+          }
+        }
+      }
+      & .group div .service {
+        & div {
+          display: flex;
+          justify-content: right;
+        }
+      }
+      & .block {
+        padding: 20px;
+      }
+    }
+  }
+</style>

@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+
+:root {
+  --main-font: "Lato", sans-serif;
+  --title-font: "Playfair Display", sans-serif;
+
+  --line-height-heading: 1.35;
+  --line-height: 1.35;
+
+  /* Font Header size */
+  --font-h0: 700 4.8rem/var(--line-height-heading) var(--title-font); /* 80px */
+  --font-h1: 700 2.875rem/var(--line-height-heading) var(--title-font); /* 46px */
+  --font-h2: 400 2.375rem/var(--line-height) var(--title-font); /* 38px */
+  --font-h3: 700 1.875rem/var(--line-height) var(--title-font); /* 30px */
+  --font-h4: 500 1.5rem/var(--line-height) var(--main-font); /* 24px NOT */
+
+  /* Font Body size */
+  --font-p1: 400 1.25rem/var(--line-height) var(--main-font); /* 20px */
+  --font-p2: 400 1rem/var(--line-height) var(--main-font); /* 16px */
+  --font-p2-cap: 600 1rem/var(--line-height) var(--main-font); /* 16px */
+  --font-p3: 600 0.875rem/var(--line-height) var(--main-font); /* 14px */
+  --font-p4: 500 0.625rem/var(--line-height) var(--main-font); /* 10px */
+}
+
+.up-case {
+  text-transform: uppercase;
+}

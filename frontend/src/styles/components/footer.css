@@ -1,0 +1,211 @@
+footer {
+  position: relative;
+  & .upper-footer {
+    background: var(--red);
+    position: relative;
+    min-height: 500px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 40px 160px;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: var(--white);
+      clip-path: polygon(0 75%, 50% 10%, 100% 75%, 100% 100%, 0 100%);
+    }
+    & div {
+      justify-items: center;
+      justify-content: center;
+      margin-left: auto;
+      margin-right: auto;
+      & h3,
+      p,
+      a {
+        color: var(--white);
+      }
+      & .logo,
+      p,
+      h3 {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+      & .logo {
+        width: 60%;
+        height: auto;
+      }
+      & p {
+        padding-top: 20px;
+        font: var(--font-p3);
+        font-weight: 300;
+        width: 32ch;
+      }
+      & h3 {
+        font: var(--font-h4);
+      }
+      & .line {
+        width: 100px;
+        height: 1px;
+        background: var(--white);
+        margin: 20px auto;
+      }
+      & ul {
+        display: flex;
+        flex-direction: column;
+        padding-left: 80px;
+        gap: 20px;
+        & li {
+          & a {
+            font: var(--font-p3);
+            &:hover {
+              color: var(--black);
+            }
+          }
+        }
+      }
+      & .connect {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        & a {
+          display: block;
+          & img {
+            padding: 6px;
+            background: var(--white);
+            width: 40px;
+          }
+          &:hover {
+            box-shadow: 2px 2px 10px var(--pink);
+          }
+        }
+      }
+    }
+  }
+  & .lower-footer {
+    position: absolute;
+    top: 86%;
+    left: 41%;
+    & div {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      & p {
+        font: var(--font-p3);
+        color: var(--red);
+        font-weight: 300;
+      }
+      & .star-wrapper {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+
+        & img {
+          width: 34px;
+          position: relative;
+          transition:
+            transform 0.25s ease,
+            filter 0.25s ease;
+        }
+
+        & .star-label {
+          position: absolute;
+          top: -26px;
+          left: 50%;
+          transform: translateX(-50%) translateY(4px);
+          background: rgba(255, 255, 255, 0.95);
+          color: var(--black);
+          font: var(--font-p3);
+          padding: 4px 10px;
+          border-radius: 999px;
+          white-space: nowrap;
+          opacity: 0;
+          pointer-events: none;
+          transition:
+            opacity 0.2s ease,
+            transform 0.2s ease;
+        }
+
+        &:hover {
+          & img {
+            transform: scale(1.08);
+            filter: brightness(1.1);
+          }
+
+          & .star-label {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+          }
+        }
+      }
+    }
+    & span {
+      font: var(--font-p4);
+      font-weight: 300;
+      & a {
+        color: var(--red);
+      }
+    }
+  }
+}
+
+@media (max-width: 1030px) {
+  footer {
+    & .upper-footer {
+      padding: 40px 80px;
+      & div {
+        & ul {
+          padding-left: 60px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 667px) {
+  footer {
+    & .upper-footer {
+      min-height: fit-content;
+      justify-items: center;
+      margin: 0 auto;
+      grid-template-columns: 1fr;
+      padding: 20px 40px 100px 40px;
+      gap: 40px;
+      &::after {
+        height: 80px;
+      }
+      & div {
+        & .logo {
+          justify-items: center;
+          margin: 0 auto;
+          width: 80%;
+        }
+        & p {
+          width: 100%;
+          text-align: center;
+        }
+        & h3 {
+          text-align: center;
+        }
+        & .line {
+          width: 80px;
+          margin: 10px auto;
+        }
+        & ul {
+          gap: 10px;
+          text-align: center;
+          padding-left: 0px;
+        }
+      }
+    }
+    & .lower-footer {
+      top: 91%;
+      left: 32%;
+    }
+  }
+}

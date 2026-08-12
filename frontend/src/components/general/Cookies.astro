@@ -1,0 +1,118 @@
+<div id="cookie-banner" class="cookie-banner hidden">
+  <div class="cookie-content">
+    <p>
+      We use cookies to improve your experience and analyze site traffic. By clicking "Accept," you agree to our <a
+        href="/privacy-policy">Privacy Policy</a
+      >.
+    </p>
+    <div class="cookie-buttons">
+      <button id="reject-cookies" class="btn-secondary">Decline</button>
+      <button id="accept-cookies" class="btn-primary">Accept</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--white);
+    color: var(--black);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    max-width: 510px;
+    margin: 0 auto;
+    font-family: sans-serif;
+  }
+  .cookie-banner.hidden {
+    display: none;
+  }
+  .cookie-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  @media (min-width: 768px) {
+    .cookie-content {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  .cookie-banner p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+  }
+  .cookie-banner a {
+    color: var(--red);
+    text-decoration: underline;
+  }
+  .cookie-buttons {
+    display: flex;
+    gap: 10px;
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background-color: var(--red);
+    color: var(--white);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .btn-secondary {
+    background-color: transparent;
+    color: var(--black);
+    border: 1px solid var(--red);
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+</style>
+
+<script>
+  const banner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("accept-cookies");
+  const rejectBtn = document.getElementById("reject-cookies");
+
+  // Función para activar Google Analytics dinámicamente si el cliente aceptou
+  function enableAnalytics() {
+    // Aquí puedes inicializar tu script de Google Analytics de forma segura
+    console.log("LGPD: Google Analytics activado.");
+    // window.gtag('consent', 'update', { 'analytics_storage': 'granted' });
+  }
+
+  // Verificar si ya existe una decisión guardada
+  const cookieConsent = localStorage.getItem("cookie-consent");
+
+  if (!cookieConsent) {
+    banner?.classList.remove("hidden");
+  } else if (cookieConsent === "accepted") {
+    enableAnalytics();
+  }
+
+  // Evento de Aceptar
+  acceptBtn?.addEventListener("click", () => {
+    localStorage.setItem("cookie-consent", "accepted");
+    banner?.classList.add("hidden");
+    enableAnalytics();
+  });
+
+  // Evento de Recusar
+  rejectBtn?.addEventListener("click", () => {
+    localStorage.setItem("cookie-consent", "rejected");
+    banner?.classList.add("hidden");
+  });
+</script>

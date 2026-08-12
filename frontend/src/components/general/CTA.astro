@@ -1,0 +1,92 @@
+---
+import { Image } from "astro:assets";
+import arrowBlue from "../../assets/icons/arrow-blue.svg";
+
+interface Props {
+  title: string;
+  description: string;
+  btnText: string;
+  btnExtra: string;
+}
+
+const { title, description, btnText, btnExtra } = Astro.props;
+---
+
+<section class="cta">
+  <div class="cta-container container">
+    <div class="cta-content">
+      <span>{title}</span>
+      <p>{description}</p>
+    </div>
+    <div class="cta-btn">
+      <a href="" class="btn btn-secondary">{btnText} <Image src={arrowBlue} alt="" /></a>
+      <p></p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta {
+    background: linear-gradient(to right, var(--bg-color) 40%, rgba(0, 0, 0, 0.8));
+    & .cta-container {
+      display: grid;
+      grid-template-columns: 1fr 0.4fr;
+      gap: 40px;
+      align-items: center;
+      & .cta-content {
+        & span,
+        p {
+          color: var(--white);
+          /* text-align: center; */
+        }
+        & span {
+          display: block;
+          font: var(--font-h1);
+        }
+        & p {
+          font: var(--font-p1);
+          padding-top: 10px;
+        }
+      }
+      /* & .cta-btn{
+        & .btn{
+          width: fit-content;
+        }
+      } */
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .cta {
+      & .cta-container {
+        grid-template-columns: 1fr 0.5fr;
+      }
+    }
+  }
+  @media (max-width: 956px) {
+    .cta {
+      & .cta-container {
+        grid-template-columns: 1fr 0.6fr;
+      }
+    }
+  }
+  @media (max-width: 874px) {
+    .cta {
+      & .cta-container {
+        grid-template-columns: 1fr;
+        & .cta-content {
+          & span,
+          p {
+            text-align: center;
+          }
+        }
+        & .cta-btn {
+          margin: 0 auto;
+          & .btn {
+            width: fit-content;
+          }
+        }
+      }
+    }
+  }
+</style>

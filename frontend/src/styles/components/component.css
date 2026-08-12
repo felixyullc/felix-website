@@ -1,0 +1,85 @@
+.container {
+  box-sizing: border-box;
+  max-width: 1200px;
+  /* padding-left: 80px;
+  padding-right: 80px; */
+  padding: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 440px) {
+  .container {
+    padding: 40px;
+  }
+}
+
+.btn {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font: var(--font-p2);
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 5px;
+  /* border: 1px solid transparent; */
+  background: linear-gradient(to right, var(--l-blue1), var(--l-blue2));
+  color: var(--white);
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.btn-secondary {
+  background: var(--white);
+  color: var(--blue);
+}
+
+.h2 {
+  display: flex;
+  color: var(--l-blue1);
+  & .decor {
+    width: 100px;
+    height: 1px;
+    background-color: var(--l-blue1);
+  }
+}
+
+.h2-small {
+  align-items: center;
+  gap: 20px;
+  font: var(--font-h4);
+}
+
+.h2-big {
+  flex-direction: column;
+  font: var(--font-h2);
+  & .decor {
+    margin: 0 auto;
+    margin-top: 10px;
+  }
+}
+
+/* .btn-secondary {
+  display: flex;
+  font: var(--font-p2);
+  font-weight: 400;
+  text-decoration: underline;
+  align-items: center;
+  padding-top: 40px;
+  &:hover {
+    color: var(--red);
+  }
+}
+
+.btn-third {
+  font: var(--font-p2);
+  font-weight: 400;
+  padding: 10px 20px;
+  border: 2px solid transparent;
+  background: var(--white);
+  color: var(--red);
+  &:hover {
+    border: 1px solid var(--red);
+  }
+} */
