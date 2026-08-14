@@ -20,7 +20,7 @@ const { title, description, btnText, btnExtra } = Astro.props;
     </div>
     <div class="cta-btn">
       <a href="" class="btn btn-secondary">{btnText} <Image src={arrowBlue} alt="" /></a>
-      <p></p>
+      <!-- <p>{btnExtra}</p> -->
     </div>
   </div>
 </section>
@@ -48,11 +48,16 @@ const { title, description, btnText, btnExtra } = Astro.props;
           padding-top: 10px;
         }
       }
-      /* & .cta-btn{
+      & .cta-btn{
         & .btn{
           width: fit-content;
         }
-      } */
+        & p{
+          font: var(--font-p2);
+          color: var(--white);
+          padding-top: 10px;
+        }
+      }
     }
   }
 
