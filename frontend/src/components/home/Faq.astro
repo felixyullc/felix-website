@@ -1,0 +1,225 @@
+---
+import { Image } from "astro:assets";
+import arrowFaq from "../../assets/icons/faq.svg";
+
+// FAQ.astro
+
+interface FAQItem {
+  id: number;
+  question: string;
+  answer: string;
+}
+
+const faqs: FAQItem[] = [
+  {
+    id: 1,
+    question: "Who is this service for?",
+    answer:
+      "It is for athletes, coaches, parents, and teams who want to build the mental skills needed for more consistent performance.",
+  },
+  {
+    id: 2,
+    question: "Is this only for professional athletes?",
+    answer:
+      "No, services are tailored for individuals across all competitive levels—from high school and collegiate athletes to recreational performers and professionals.",
+  },
+  {
+    id: 3,
+    question: "What sports do you work with?",
+    answer:
+      "I work across all sports and domains of life, focusing on foundational mental skills that apply universally across athletic disciplines.",
+  },
+  {
+    id: 4,
+    question: "Where are you located? Do you also offer online services?",
+    answer: "I am based in Chicago and offer virtual online format sessions accessible from anywhere.",
+  },
+  {
+    id: 5,
+    question: "How does the process work?",
+    answer:
+      "We begin with an initial consultation to understand your goals, followed by customized collaborative sessions designed around your specific performance or therapeutic needs.",
+  },
+  {
+    id: 6,
+    question: "Can I book through the website?",
+    answer: "Yes, you can schedule your initial session or meet directly using the booking links throughout the site.",
+  },
+  {
+    id: 7,
+    question: "Do you also accept online payments?",
+    answer:
+      "Yes, services are private pay (out of pocket) and processed online securely. A sliding scale is available based on financial need.",
+  },
+  {
+    id: 8,
+    question: "What types of services do you offer?",
+    answer:
+      "I offer individual mental performance coaching, group workshops/team culture building, individual therapy (LPC), and CMPC mentorship.",
+  },
+  {
+    id: 9,
+    question: "Do you work with parents as well?",
+    answer:
+      "Yes, I help parents support their athlete's mental game in ways that carry over into life beyond sports while navigating competitive pressures.",
+  },
+  {
+    id: 10,
+    question: "What makes your work different?",
+    answer:
+      "My approach combines over a decade of mental performance expertise with licensed clinical insight, offering practical, goal-oriented support for both performance and personal life.",
+  },
+  {
+    id: 11,
+    question: "What can I expect from the sessions?",
+    answer:
+      "Collaborative, practical, and structured sessions focused on building focus, confidence, emotional control, and long-term consistency under high pressure.",
+  },
+  {
+    id: 12,
+    question: "How do I know if this is right for me?",
+    answer:
+      "If you want to strengthen your mental approach, improve consistency under pressure, or navigate personal challenges, scheduling a quick introductory chat is the best first step.",
+  },
+];
+
+// Split the array into two columns (6 items each)
+const col1 = faqs.slice(0, 6);
+const col2 = faqs.slice(6, 12);
+---
+
+<section class="faq-section">
+  <div class="container">
+    <div class="faq-header">
+      <h2 class="h2 h2-small">Common Questions <div class="decor"></div></h2>
+      <p class="subtitle">Frequently Asked Questions</p>
+    </div>
+    <div class="faq-wrapper">
+      <div class="faq-grid">
+        <!-- Left Column -->
+        <dl class="faq-column">
+          {
+            col1.map((faq) => (
+              <div class="faq-item">
+                <dt>
+                  <details class="faq-details">
+                    <summary class="faq-question">
+                      <span>
+                        {faq.id}. {faq.question}
+                      </span>
+                      <span class="icon" aria-hidden="true">
+                        <Image src={arrowFaq} alt="" />
+                      </span>
+                    </summary>
+                    <dd class="faq-answer">
+                      <p>{faq.answer}</p>
+                    </dd>
+                  </details>
+                </dt>
+              </div>
+            ))
+          }
+        </dl>
+        <!-- Right Column -->
+        <dl class="faq-column">
+          {
+            col2.map((faq) => (
+              <div class="faq-item">
+                <dt>
+                  <details class="faq-details">
+                    <summary class="faq-question">
+                      <span>
+                        {faq.id}. {faq.question}
+                      </span>
+                      <span class="icon" aria-hidden="true">
+                        <Image src={arrowFaq} alt="" />
+                      </span>
+                    </summary>
+                    <dd class="faq-answer">
+                      <p>{faq.answer}</p>
+                    </dd>
+                  </details>
+                </dt>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    & .faq-header {
+      & .subtitle {
+        font: var(--font-h2);
+        padding: 20px 0px;
+      }
+    }
+    & .faq-wrapper {
+      padding-top: 20px;
+      /* Parent grid creates the two independent main columns */
+      & .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        align-items: start; /* Prevents columns from expanding each other */
+      }
+      /* Each column manages its own vertical spacing */
+      & .faq-column {
+        display: flex;
+        flex-direction: column;
+        gap: 20px; /* Replaces row-gap */
+        & .faq-item {
+          & .faq-details {
+            & .faq-question {
+              display: flex;
+              gap: 20px;
+              background: var(--blue-span2);
+              padding: 10px 20px;
+              cursor: pointer;
+              list-style: none;
+              justify-content: space-between;
+              align-items: center;
+              & span {
+                font: var(--font-p2);
+                color: var(--blue);
+                font-weight: 600;
+              }
+              &::-webkit-details-marker {
+                display: none;
+              }
+            }
+            & .faq-answer {
+              background: var(--blue-bg);
+              padding: 10px 20px;
+              margin-top: 20px;
+              & p {
+                font: var(--font-p2);
+                color: var(--black);
+              }
+            }
+          }
+          & details[open] .icon {
+            transform: rotate(90deg);
+          }
+          & .icon {
+            transition: transform 0.2s ease;
+            font-size: 1.25rem;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 440px){
+    .faq-section{
+      & .faq-wrapper{
+        & .faq-grid{
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+  }
+</style>

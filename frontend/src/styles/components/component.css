@@ -1,8 +1,6 @@
 .container {
   box-sizing: border-box;
   max-width: 1200px;
-  /* padding-left: 80px;
-  padding-right: 80px; */
   padding: 80px;
   margin-left: auto;
   margin-right: auto;
@@ -59,27 +57,3 @@
     margin-top: 10px;
   }
 }
-
-/* .btn-secondary {
-  display: flex;
-  font: var(--font-p2);
-  font-weight: 400;
-  text-decoration: underline;
-  align-items: center;
-  padding-top: 40px;
-  &:hover {
-    color: var(--red);
-  }
-}
-
-.btn-third {
-  font: var(--font-p2);
-  font-weight: 400;
-  padding: 10px 20px;
-  border: 2px solid transparent;
-  background: var(--white);
-  color: var(--red);
-  &:hover {
-    border: 1px solid var(--red);
-  }
-} */
