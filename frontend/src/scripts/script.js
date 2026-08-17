@@ -2,7 +2,7 @@ import { currentYear, myBackground, ActiveMenu } from "./modules/dom.js";
 import { initBurgerMenu } from "./components/burgerMenu.js";
 import { initCal } from "./components/cal.js";
 
-// currentYear()
+currentYear()
 initBurgerMenu();
 myBackground();
 ActiveMenu();

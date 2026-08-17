@@ -1,0 +1,62 @@
+---
+import { Image } from "astro:assets";
+import cmpc from "../../assets/logos/CMPC_logo.png";
+---
+
+<section class="certification">
+  <div class="img">
+    <Image src={cmpc} alt="" />
+  </div>
+  <div class="content">
+    <p>
+      <strong>The CMPC® (Certified Mental Performance Consultant)</strong> certification is the only nationally accredited
+      mental performance credential in North America, awarded by the Association for Applied Sport Psychology (AASP) and ensuring
+      that the professional meets rigorous academic requirements, hundreds of hours of supervised practice, and the highest
+      ethical standards to guide athletes, performers, and executives toward the peak of their potential through scientific,
+      evidence-based strategies.
+    </p>
+  </div>
+</section>
+
+<style>
+  .certification {
+    display: grid;
+    grid-template-columns: 0.6fr 1fr;
+    padding: 80px;
+    gap: 20px;
+    align-items: center;
+    & .img {
+    }
+    & .content {
+      background: var(--blue-bg);
+      padding: 40px;
+      height: fit-content;
+      & p {
+        font: var(--font-p1);
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .certification {
+      grid-template-columns: 1fr;
+      padding: 40px;
+      & .img {
+        width: 300px;
+        margin: 0 auto;
+      }
+      & .content {
+        & p {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 440px) {
+    .certification {
+      & .img {
+        width: 200px;
+      }
+    }
+  }
+</style>

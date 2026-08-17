@@ -1,61 +1,116 @@
 ---
 import { Image } from "astro:assets";
-// import logo from "../../public/img/logo.png";
-// import ig from "../../public/icons/instagram.svg";
-// import fb from "../../public/icons/facebook.svg";
-// import li from "../../public/icons/linkedin.svg";
-// import star from "../../public/icons/star.svg";
-
+import logo from "../../assets/logos/logo_felix.svg";
+import email from "../../assets/icons/email.svg";
+import linkedin from "../../assets/icons/linkedin.svg";
 ---
 
 <footer>
   <div class="upper-footer">
-    <div>
-      <!-- <Image class="logo" src={logo} alt="" /> -->
-      <p></p>
+    <div class="img">
+      <a href="/"> <Image class="logo" src={logo} alt="" /></a>
     </div>
-    <div>
-      <h3>Pages</h3>
-      <div class="line"></div>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/my-approach">My Approach</a></li>
-        <li><a href="/organisations">Organisations</a></li>
-        <li><a href="/individual-performance">Individual Performance</a></li>
-        <li><a href="/privacy-policy">Privacy and Cookie Policy</a></li>
+    <div class="content">
+      <div class="text">
+        <p>Mental performance support for athletes, coaches, parents and teams.</p>
+        <p>Therapeutic support for people navigating various challenges in their life.</p>
+      </div>
+      <ul class="links">
+        <li><a href="mailto:felix@felixyullc.com"><Image src={email} alt="" /></a></li>
+        <li>
+          <a href="https://www.linkedin.com/company/felix-yu-llc/" target="_blank"><Image src={linkedin} alt="" /></a>
+        </li>
+      </ul>
+      <ul class="nav">
+        <li><a href="#about-me">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#services-details">Process</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
     </div>
-    <div>
-      <h3>Connect</h3>
-      <div class="line"></div>
-      <div class="connect">
-        <a href="https://www.instagram.com/stephbe.ie/" target="_blank"
-          >
-          <!-- <Image class="logo" src={ig} alt="" /> -->
-          </a
-        >
-        <a href="https://www.facebook.com/StephBe.ie" target="_blank"
-          >
-          <!-- <Image class="logo" src={fb} alt="" /> -->
-          </a
-        >
-        <a href="https://www.linkedin.com/in/stephanie-brady-7b852022/" target="_blank"
-          >
-          <!-- <Image class="logo" src={li} alt="" /> -->
-          </a
-        >
-      </div>
-    </div>
   </div>
+
   <div class="lower-footer">
     <div>
-      <p>© 2026 All rights reserved.</p>
-      <div class="star-wrapper">
-        <span class="star-label">For Oisín</span>
-        <!-- <Image class="logo" src={star} alt="" /> -->
-        <!-- <img src="../public/icons/star.svg" alt="Star icon" /> -->
-      </div>
+      <p>© <span id="current-year"></span> Felix Yu LLC. All rights reserved</p>
+      <!-- initial year 2026 -->
     </div>
     <span>Website designed and managed by <a href="https://leo-crixi.com/" target="_blank">Leo Crixi</a></span>
+    <a href="/privacy-policy">Terms & Privacy Policy</a>
   </div>
 </footer>
+
+<style>
+  footer {
+    & .upper-footer {
+      margin: 0 auto;
+      justify-content: center;
+      background: var(--blue-bg);
+      padding: 40px 80px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 80px;
+      & .img img {
+        width: 250px;
+      }
+      & .content {
+        & .text {
+          & p {
+            font: var(--font-p1);
+            color: var(--blue);
+            text-align: center;
+          }
+        }
+        & .links {
+          display: flex;
+          gap: 100px;
+          padding: 40px 0px;
+          justify-content: center;
+          & img {
+            width: 25px;
+            height: 25px;
+          }
+        }
+        & .nav {
+          display: flex;
+          gap: 40px;
+          justify-content: center;
+          & a {
+            font: var(--font-p1);
+          }
+        }
+      }
+    }
+    & .lower-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      padding: 40px;
+      gap: 40px;
+      & p,
+      span,
+      a {
+        font: var(--font-p2);
+      }
+      & span a {
+        color: var(--blue-span);
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      & a:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  @media (max-width: 440px) {
+    footer {
+      & .upper-footer {
+        gap: 20px;
+      }
+      & .lower-footer {
+        gap: 20px;
+      }
+    }
+  }
+</style>
