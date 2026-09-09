@@ -23,10 +23,10 @@ import arrow from "../../assets/icons/arrow.svg";
       <li><a href="#services-details">PROCESS</a></li>
       <li><a href="#faq">FAQ</a></li>
       <button class="btn-cta"><a href="" class="btn">BOOK A SESSION <Image src={arrow} alt="" /></a></button>
+      <div class="nav-btn">
+        <a href="" class="btn">BOOK A SESSION <Image src={arrow} alt="" /></a>
+      </div>
     </ul>
-    <div class="nav-btn">
-      <a href="" class="btn">BOOK A SESSION <Image src={arrow} alt="" /></a>
-    </div>
   </nav>
 </header>
 
@@ -35,7 +35,7 @@ import arrow from "../../assets/icons/arrow.svg";
     padding: 10px 80px;
     nav {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 80px;
       & .logos {
         display: flex;
